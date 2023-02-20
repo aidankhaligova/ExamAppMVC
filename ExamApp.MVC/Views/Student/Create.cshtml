@@ -1,0 +1,23 @@
+﻿@using ExamApp.Service.ViewModels.Student;
+@model StudentViewModel
+
+<h1>Add Student</h1>
+<form method="post" action="CreateStudent">
+    <div class="form-group">
+        <label for="" class="form-label">No</label>
+        <input type="text" class="form-control" asp-for="No">
+    </div>
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Surname</label>
+        <input type="text" class="form-control" asp-for="Surname">
+    </div>
+    <div class="form-group">
+        <label for="">Class</label>
+        <input type="number" class="form-control" asp-for="Class">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>

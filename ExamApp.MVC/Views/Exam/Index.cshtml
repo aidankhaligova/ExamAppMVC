@@ -1,0 +1,47 @@
+﻿@using ExamApp.Service.ViewModels.Exam;
+@model List<ExamViewModel>
+
+@{
+    ViewData["Title"] = "Exams";
+}
+
+<h1>Exams</h1>
+<table id="example" class="table table-striped table-bordered tbl" style="width:100%">
+    <thead>
+        <tr>
+            <th>Lesson Name</th>
+            <th>Student's Fullname</th>
+            <th>Exam Date</th>
+            <th>Grade</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LessonName</td>
+                <td>@item.StudentFullname</td>
+                <td>@item.ExamDate</td>
+                <td>@item.Grade</td>
+                <td>
+                    <a href="Update/@item.Id" class="btn btn-primary bgupdate" id="btnUpdate"><i class='fas fa-download'></i>Update</a>
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@item.Id">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-danger bgdelete"
+                                onclick="return confirm('Are you sure to delete this record?')">
+                                Delete
+                            </button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary bgupdate" asp-controller="Exam" asp-action="Create" id="myBtnAdd"><i class='fas fa-download'></i>Add</a>

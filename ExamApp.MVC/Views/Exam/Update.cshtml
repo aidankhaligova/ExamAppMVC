@@ -1,0 +1,24 @@
+﻿@using ExamApp.Service.ViewModels.Exam;
+@model ExamViewModel
+
+<h1>Update Exam</h1>
+<form method="post" asp-action="UpdateExam">
+    <div class="form-group mb-3">
+        <input type="hidden" asp-for="Id" />
+        <label for="" class="form-label">Lessons</label>
+        @Html.DropDownList("LessonCode", (IEnumerable<SelectListItem>)ViewBag.Lessons,  new { @class = "form-control"} )
+    </div>
+    <div class="form-group mb-3">
+        <label for="" class="form-label">Students</label>
+        @Html.DropDownList("StudentNo", (IEnumerable<SelectListItem>)ViewBag.Students,  new { @class = "form-control"} )
+    </div>
+    <div class="form-group mb-3">
+        <label for="" class="form-label">ExamDate</label>
+        <input type="date" class="form-control" asp-for="ExamDate">
+    </div>
+    <div class="form-group">
+        <label for="">Grade</label>
+        <input type="text" class="form-control" asp-for="Grade">
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
